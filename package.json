@@ -1,5 +1,10 @@
 {	"name": "led-manager",
 	"dependencies": {
-		"msi-keyboard":"*"
+		"msi-keyboard":"*",
+		"socket.io-client":"*",
+		"socket.io":"*",
+		"coffee-script":"*",
+		"express":"*"
+
 	}
 }
