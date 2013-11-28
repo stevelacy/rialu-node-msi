@@ -1,9 +1,15 @@
-MSI Keyboard KLM example
+Rialtóir 
 ============
-https://github.com/wearefractal/msi-keyboard
-------------
+### Node Server - Cloud and local 
 
-Example of using MSI-Keyboard
+####Hardware: MSI GT series
+
+Required hardware controller: https://github.com/wearefractal/msi-keyboard
+
+####Description:
+
+PC control system in node designed for MSI GT devices.
+Controlled via mobile or web.
 
 
 -- Updates in progress
