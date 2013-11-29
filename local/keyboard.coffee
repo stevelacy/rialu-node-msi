@@ -8,3 +8,6 @@ keyboard.color('right',{color: 'red', intensity: 'high'})
 
 # Use default Hardware enabled mode:
 #keyboard.mode 'wave' # wave, breathe, gaming
+
+
+module.exports = keyboard
