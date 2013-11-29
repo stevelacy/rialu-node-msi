@@ -1,0 +1,222 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:200,300);
+
+
+//color vars
+transparent = rgba(0, 0, 0, 0)
+
+black = rgba(0, 0, 0, 1)
+
+white = rgba(250, 250, 250, 1)
+white-pure = rgba(255, 255, 255, 1)
+white-shade = rgba(235, 235, 235, 1)
+
+light-grey = rgba(205, 205, 205, 1)
+light-grey-shade = rgba(190, 190, 190, 1)
+grey  = rgba(100, 100, 100, 1)
+grey-shade = rgba(85, 85, 85, 1)
+dark-grey = rgba(50, 50, 50, 1)
+dark-grey-shade = rgba(35, 35, 35, 1)
+
+blue = rgba(52, 152, 219, 1)
+blue-shade = rgba(41, 128, 185, 1)
+
+red = rgba(231, 76, 60, 1)
+red-shade = rgba(192, 57, 43, 1)
+
+green = rgba(101, 157, 50, 1)
+green-shade = rgba(81, 137, 30, 1)
+
+yellow = rgba(241, 196, 15, 1)
+yellow-shade = rgba(243, 156, 18, 1)
+
+//font vars
+font = 'Raleway', sans-serif;
+
+
+*
+  margin 0
+  padding 0
+
+*, *:before, *:after
+  -moz-box-sizing border-box
+  -webkit-box-sizing border-box
+  box-sizing border-box
+
+body
+  width 100%
+  font-family font
+  font-size 1.5em
+  font-weight 200
+  color dark-grey-shade
+
+
+
+input, textarea
+  border 1px solid white
+  outline none
+  padding 10px
+  font-family font
+  &:focus
+    border 1px solid white-shade  
+button, input[type='submit'] 
+  padding 10px
+  background white-shade
+  border none
+  border-bottom 2px solid light-grey
+  box-shadow 0 0 2px light-grey
+
+
+
+
+
+// classes
+
+.framed
+  padding 1%
+.align-right
+  text-align right
+.align-left
+  text-align left
+.align-center
+  text-align center
+
+.inline-block
+	display inline-block
+
+
+
+
+// Jquery UI theme fixes:
+.volume .slider
+	position relative
+	height 12px
+	outline-color transparent
+	.ui-slider-handle
+		position absolute
+		top -10px
+		height 30px
+		width 30px
+		border-radius 15px
+		outline none
+
+.volume .tooltip
+	width 30%
+	height 75px
+
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus, .ui-state-active, .ui-widget-content .ui-state-active
+	outline none
+	border none
+	box-shadow 0 0 2px light-grey
+	background white-pure
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // color classes
+.black
+  color black
+
+.white
+  color white
+.white-pure
+  color white-pure
+.white-shade
+  color white-shade
+
+.light-grey
+  color light-grey
+.light-grey-shade
+  color light-grey-shade
+.grey
+  color grey
+.grey-shade
+  color grey-shade
+.dark-grey
+  color dark-grey
+.dark-grey-shade
+  color dark-grey-shade
+
+.blue
+  color blue
+.blue-shade
+  color blue-shade
+
+.red
+  color red
+.red-shade
+  color red-shade
+
+.green
+  color green
+.green-shade
+  color green-shade
+
+.yellow
+  color yellow
+.yellow-shade
+  color yellow-shade
+
+// background classes
+.bg-black
+  background black
+
+.bg-white
+  background white
+.bg-white-pure
+  background white-pure
+.bg-white-shade
+  background white-shade
+
+.bg-light-grey
+  background light-grey
+.bg-light-grey-shade
+  background light-grey-shade
+.bg-grey
+  background grey
+.bg-grey-shade
+  background grey-shade
+.bg-dark-grey
+  background dark-grey
+.bg-dark-grey-shade
+  background dark-grey-shade
+
+.bg-blue
+  background blue
+.bg-blue-shade
+  background blue-shade
+
+.bg-red
+  background red
+.bg-red-shade
+  background red-shade
+
+.bg-green
+  background green
+.bg-green-shade
+  background green-shade
+
+.bg-yellow
+  background yellow
+.bg-yellow-shade
+  background yellow-shade
+
+
+
+
+// Webkit hacks
+*
+	-webkit-tap-highlight-color rgba(0, 0, 0, 0)
+	-webkit-user-modify read-write-plaintext-only
+	outline none

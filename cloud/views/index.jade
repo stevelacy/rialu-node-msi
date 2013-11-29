@@ -1,0 +1,24 @@
+!!!5
+html
+	head
+		title Rialtoir
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+		script(src='http://code.jquery.com/jquery-2.0.3.min.js')
+		script(src='/js/jqui.js')
+		script(src='/js/jqpunch.js')
+		script(src='/socket.io/socket.io.js')
+		script(src='/js/js.js')
+		link(href='/css/jqui.css' rel='stylesheet')
+		link(href='/css/style.css' rel='stylesheet')
+
+	body.bg-white-shade
+		.content.framed
+			button#panic.bg-white Panic
+
+			section.volume.align-center  
+				span.tooltip.inline-block.align-center
+					| Volume
+					#volume
+						| 50
+				div#slider.slider
+			
