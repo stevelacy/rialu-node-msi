@@ -1,10 +1,14 @@
-{	"name": "led-manager",
+{	
+	"name": "led-manager",
+	"version":"0.0.2",
 	"dependencies": {
 		"msi-keyboard":"*",
 		"socket.io-client":"*",
 		"socket.io":"*",
 		"coffee-script":"*",
-		"express":"*"
+		"express":"*",
+		"jade":"*",
+		"stylus":"*"
 
 	}
 }
