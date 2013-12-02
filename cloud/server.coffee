@@ -20,7 +20,7 @@ io.on 'connection', (socket) ->
   socket.join room
   console.log room
 
-  socket.on	'panic', (panic) ->
+  socket.on 'panic', (panic) ->
   	console.log "panic"
   	socket.broadcast.to(room).emit 'panic', {panic:panic}
   	
