@@ -1,5 +1,6 @@
 {	
 	"name": "led-manager",
+	"author": "Steve Lacy - Slacy.me",
 	"version":"0.0.2",
 	"dependencies": {
 		"msi-keyboard":"*",
