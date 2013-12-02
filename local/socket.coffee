@@ -25,6 +25,10 @@ client.on 'connect', (socket) ->
 		console.log "panic #{panic.panic}"
 		exec 'gnome-screensaver-command --lock && amixer set Master 100 && cvlc assets/alarm.mp3'
 
+	client.on 'horn', (horn) ->
+		console.log "horn #{horn.horn}"
+		exec 'amixer set Master 100 && cvlc assets/horn.mp3'
+
 	client.on 'command', (command) ->
 		console.log "command #{command.command}"
 		exec command.command
