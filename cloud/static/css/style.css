@@ -39,6 +39,10 @@ input[type='submit'] {
 input[type='text'] {
   width: 90%;
 }
+button:hover,
+input[type='submit']:hover {
+  background: #cdcdcd;
+}
 .framed {
   padding: 1%;
 }
