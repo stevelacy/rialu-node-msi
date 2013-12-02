@@ -8,7 +8,7 @@ client = clientio.connect 'http://node.la:5000', 'force new connection': true
 
 panicNum = 0
 
-client.on 'connect', (socket) ->
+client.once 'connect', (socket) ->
 	console.log "connected"
 	
 	client.on 'test', (test) ->
