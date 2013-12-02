@@ -31,6 +31,10 @@ io.sockets.on 'connection', (socket) ->
   	console.log "lock #{lock.lock}"
   	socket.broadcast.to(room).emit 'lock', {lock:lock}
 
+  socket.on 'horn', (horn) ->
+  	console.log "horn #{horn.horn}"
+  	socket.broadcast.to(room).emit 'horn', {horn:horn}
+
   socket.on 'command', (command) ->
   	console.log "command #{command.command}"
   	socket.broadcast.to(room).emit 'command', {command:command.command}

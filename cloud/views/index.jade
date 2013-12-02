@@ -13,14 +13,16 @@ html
 
 	body.bg-white-shade
 		.content.framed
+			.spacer-25
 			form#command-form.align-center
 				input#command.inline-block(type='text' placeholder='Run') 
-				
+			.spacer-25
 			.align-center
 				button#lock.inline-block.margin-10.bg-white Lock
 				button#panic.inline-block.margin-10.bg-white.red Panic
-
-			section.volume.align-center  
+				button#horn.inline-block.margin-10.bg-white Horn
+			.spacer-25
+			.volume.align-center  
 				span.tooltip.inline-block.align-center
 					| Volume
 					#volume

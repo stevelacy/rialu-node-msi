@@ -8,12 +8,15 @@ $('#panic').click(function(){
   socket.emit('panic', {panic:'panic'});
 });
 $('#lock').click(function(){
-	socket.emit('lock', {lock:'lock'})
+	socket.emit('lock', {lock:'lock'});
+});
+$('#horn').click(function(){
+	socket.emit('horn', {horn:'horn'});
 });
 
 var sendCommand = function(command){
 	socket.emit('command', {command:command});
-}
+};
 
 
 $('#slider').slider({
