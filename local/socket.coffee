@@ -6,7 +6,7 @@ exec = process.exec
 
 client = clientio.connect 'http://node.la:5000', 'force new connection': true
 
-
+panicNum = 0
 
 client.on 'connect', (socket) ->
 	console.log "connected"
@@ -23,7 +23,14 @@ client.on 'connect', (socket) ->
 
 	client.on 'panic', (panic) ->
 		console.log "panic #{panic.panic}"
-		exec 'gnome-screensaver-command --lock && amixer set Master 100 && cvlc assets/alarm.mp3'
+		if panicNum == 0
+			panicNum = 1
+			exec 'gnome-screensaver-command --lock && amixer set Master 100 && cvlc assets/alarm.mp3'
+			console.log 'panic 1'
+		else
+			panicNum = 0
+			exec 'killall vlc'
+			console.log 'panic 0'
 
 	client.on 'horn', (horn) ->
 		console.log "horn #{horn.horn}"
