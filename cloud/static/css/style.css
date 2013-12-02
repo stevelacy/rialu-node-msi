@@ -36,6 +36,9 @@ input[type='submit'] {
   border-bottom: 2px solid #cdcdcd;
   box-shadow: 0 0 2px #cdcdcd;
 }
+input[type='text'] {
+  width: 90%;
+}
 .framed {
   padding: 1%;
 }
@@ -50,6 +53,12 @@ input[type='submit'] {
 }
 .inline-block {
   display: inline-block;
+}
+.spacer-25 {
+  height: 50px;
+}
+.margin-10 {
+  margin: 10px;
 }
 .volume .slider {
   position: relative;
@@ -190,6 +199,5 @@ input[type='submit'] {
 }
 * {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-user-modify: read-write-plaintext-only;
   outline: none;
 }

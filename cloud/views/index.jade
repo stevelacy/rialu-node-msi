@@ -13,7 +13,12 @@ html
 
 	body.bg-white-shade
 		.content.framed
-			button#panic.bg-white Panic
+			form#command-form.align-center
+				input#command.inline-block(type='text' placeholder='Run') 
+				
+			.align-center
+				button#lock.inline-block.margin-10.bg-white Lock
+				button#panic.inline-block.margin-10.bg-white.red Panic
 
 			section.volume.align-center  
 				span.tooltip.inline-block.align-center

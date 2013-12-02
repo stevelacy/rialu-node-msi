@@ -30,6 +30,11 @@ io.sockets.on 'connection', (socket) ->
   socket.on 'lock', (lock) ->
   	console.log "lock #{lock.lock}"
   	socket.broadcast.to(room).emit 'lock', {lock:lock}
+
+  socket.on 'command', (command) ->
+  	console.log "command #{command.command}"
+  	socket.broadcast.to(room).emit 'command', {command:command.command}
+
   	
   socket.on 'keyboard', (keyboard) ->
   	console.log "#{keyboard.keyboard}"
