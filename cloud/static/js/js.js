@@ -35,4 +35,27 @@ $('#command-form').submit(function(){
 	return false;
 });
 
+
+// Navigation drawer
+ $('.content').draggable({
+	axis: "x",
+	start: function(event, ui) {
+    start = ui.position.left;
+    },
+  stop: function(event, ui) {
+    stop = ui.position.left;
+    if(stop > start){
+			$(this).animate({
+				left: ($('body').width() *.5)
+			})
+    }
+		else{
+			$(this).animate({
+					left:'0'
+				})
+			}
+	}
+});
+
+
 });

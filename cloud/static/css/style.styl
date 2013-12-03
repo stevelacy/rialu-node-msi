@@ -90,6 +90,11 @@ button:hover, input[type='submit']:hover
 .margin-10
 	margin 10px
 
+.trans
+  //-webkit-transition all 0.4s ease
+  -moz-transition all 0.4s ease
+  -o-transition all 0.4s ease
+  //transition all 0.4s ease
 
 
 // Jquery UI theme fixes:
@@ -122,6 +127,37 @@ button:hover, input[type='submit']:hover
 
 
 
+
+
+// custom classes
+body,html
+  z-index 0
+  height 100%
+  position relative
+.content
+  height 100%
+  position relative
+.z-index-5
+  z-index 5
+.navOpen
+  margin-left 50%
+  width 100%
+.navClosed
+  margin-left 0
+
+.navDrawer
+  position absolute
+  left 0
+  top 0
+  width 49%
+  height 100%
+  box-shadow 0 0 10px grey
+  li
+    list-style-type none
+    width 100%
+    height 50px
+    box-shadow 0 0 2px grey
+    padding 10px
 
 
 
