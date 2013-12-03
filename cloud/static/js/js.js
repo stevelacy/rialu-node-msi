@@ -4,18 +4,38 @@ var socket = io.connect('//node.la:5000');
 socket.on('connect', function(connect) {
   console.log(connect);
 });
-$('#panic').click(function(){
-  socket.emit('panic', {panic:'panic'});
-});
-$('#lock').click(function(){
-	socket.emit('lock', {lock:'lock'});
-});
-$('#horn').click(function(){
-	socket.emit('horn', {horn:'horn'});
+
+socket.on('users', function(users){
+	console.log(users);
 });
 
+socket.on('clients', function(clients){
+	console.log(clients);
+	for (var i = 0; i < clients.client.length; i++){
+		$('#navDrawer').append('<a href="/'+clients.client[i]._id+'"><li class="bg-white-shade">'+clients.client[i].nickname+'</li></a>');
+		$('#clientList').append('<a href="/'+clients.client[i]._id+'"><li class="bg-white">'+clients.client[i].nickname+' <div class="delete-item" id="delete-item" data-id="'+clients.client[i]._id+'">X</div></li></a>');
+	}
+	
+});
+
+$('#panic').click(function(){
+  socket.emit('panic', {panic:'panic', client:client});
+});
+$('#lock').click(function(){
+	socket.emit('lock', {lock:'lock', client:client});
+});
+$('#horn').click(function(){
+	socket.emit('horn', {horn:'horn', client:client});
+});
+
+$(document).on('click', '#delete-item', function(e) {
+	e.preventDefault();
+	socket.emit('delete',{delete:$(this).attr('data-id')});
+	$(this).parent().remove();
+})
+
 var sendCommand = function(command){
-	socket.emit('command', {command:command});
+	socket.emit('command', {command:command, client:client});
 };
 
 
@@ -25,7 +45,7 @@ $('#slider').slider({
 		$('#volume').text(ui.value);
 	},
 	change: function(e, ui){
-		socket.emit('volume', {volume:ui.value});
+		socket.emit('volume', {volume:ui.value, client:client});
 	}
 });
 
@@ -36,7 +56,28 @@ $('#command-form').submit(function(){
 });
 
 
+if (window.navigator.userAgent == "rialu-app") {
+	$(".desktop").hide()
+}
+
+
 // Navigation drawer
+var slide = 0
+$('#slide-menu').click(function(){
+	if (slide == 0) {
+		$('.content').animate({
+			left: ($('body').width() *.5)
+		})
+		slide = 1
+	}
+	else{
+	$('.content').animate({
+			left: '0'
+		})
+		slide = 0
+	}
+});
+
  $('.content').draggable({
 	axis: "x",
 	start: function(event, ui) {

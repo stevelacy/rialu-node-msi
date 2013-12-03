@@ -1,0 +1,30 @@
+!!!5
+html
+	script
+		var client = '#{pc}';
+	include ./head
+	
+	body.bg-white-shade.trans
+		include ./navdrawer
+			
+
+		.content.framed.z-index-5.bg-white-shade.trans
+			
+			h2.align-center.margin-10 
+				| #{pc}
+			
+			form#command-form.align-center
+				input#command.inline-block(type='text' placeholder='Run') 
+			.spacer-25
+			.align-center
+				button#lock.inline-block.margin-10.bg-white Lock
+				button#panic.inline-block.margin-10.bg-white.red Panic
+				button#horn.inline-block.margin-10.bg-white Horn
+			.spacer-25
+			.volume.align-center  
+				span.tooltip.inline-block.align-center
+					| Volume
+					#volume
+						| 50
+				div#slider.slider
+			
