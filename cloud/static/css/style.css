@@ -58,11 +58,17 @@ input[type='submit']:hover {
 .inline-block {
   display: inline-block;
 }
+.spacer {
+  height: 100px;
+}
 .spacer-25 {
   height: 50px;
 }
 .margin-10 {
   margin: 10px;
+}
+.box-shadow {
+  box-shadow: 0 0 3px #646464;
 }
 .trans {
   -moz-transition: all 0.4s ease;

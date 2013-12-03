@@ -1,7 +1,7 @@
 {	
 	"name": "rialu",
 	"author": "Steve Lacy - Slacy.me",
-	"version":"0.0.3",
+	"version":"0.1.0",
 	"dependencies": {
 		"msi-keyboard":"*",
 		"socket.io-client":"*",
@@ -9,7 +9,12 @@
 		"coffee-script":"*",
 		"express":"*",
 		"jade":"*",
-		"stylus":"*"
+		"stylus":"*",
+		"mongoose":"*",
+		"connect-mongo":"*",
+		"passport":"*",
+		"passport-twitter":"*",
+		"passport.socketio":"1.2.1"
 
 	}
 }

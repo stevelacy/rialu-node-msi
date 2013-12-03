@@ -1,21 +1,24 @@
 clientio  = require 'socket.io-client'
 process = require 'child_process'
 #keyboard = require './keyboard'
+keys = require './keys'
 
 exec = process.exec
 
 client = clientio.connect 'http://node.la:5000', 'force new connection': true
 
 panicNum = 0
+twitter = keys.twitter
 
 client.once 'connect', (socket) ->
 	console.log "connected"
+	client.emit 'auth', {auth:twitter}
 	
-	client.on 'test', (test) ->
-		console.log test
+	client.on 'auth', (auth) ->
+		console.log "Twitter authorized #{auth.auth}"
 
 	client.on 'volume', (volume) ->
-		console.log "volume #{volume}"
+		console.log "volume #{volume.volume}"
 		exec "amixer set Master #{volume.volume}"
 
 	client.on 'lock', (lock) ->

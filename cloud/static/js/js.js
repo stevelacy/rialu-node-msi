@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-var socket = io.connect('http://node.la:5000');
+var socket = io.connect('//node.la:5000');
 socket.on('connect', function(connect) {
   console.log(connect);
 });
