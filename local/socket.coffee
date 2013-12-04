@@ -6,7 +6,7 @@ config = require './config'
 
 exec = process.exec
 
-client = clientio.connect 'http://node.la:5000', 'force new connection': true
+client = clientio.connect config.server, 'force new connection': true
 
 panicNum = 0
 twitter = keys.twitter
