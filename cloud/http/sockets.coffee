@@ -98,6 +98,9 @@ io.on 'connection', (socket) ->
   	console.log "#{keyboard.keyboard}"
   	socket.broadcast.to(room).emit 'keyboard', {keyboard:keyboard, client:keyboard.client}
 
+  socket.on 'gps', (gps) ->
+    console.log "GPS request"
+    socket.broadcast.to(room).emit 'gps', {gps:gps, client:gps.client}
 
   socket.on 'delete', (del) ->
     console.log "deleting #{del.delete}"

@@ -1,5 +1,6 @@
 clientio  = require 'socket.io-client'
 process = require 'child_process'
+location = require 'wifi-location'
 #keyboard = require './keyboard'
 keys = require './keys'
 config = require './config'
@@ -48,6 +49,14 @@ client.once 'connect', (socket) ->
 		return true unless command.client == config.nickname
 		console.log "command #{command.command}"
 		exec command.command
+
+	client.on 'gps', (gps) ->
+		return true unless gps.client == config.nickname
+		location.getTowers (err, towers) ->
+			location.getLocation towers, (err, loc) ->
+				return console.log err if err?
+				console.log loc
+				client.emit 'gps', {gps:loc}
 
 	client.on 'keyboard', (keyboard) ->
 		return true unless keyboard.client == config.nickname

@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+$('#location').hide();
 var socket = io.connect('//node.la:5000');
 socket.on('connect', function(connect) {
   console.log(connect);
@@ -17,6 +18,11 @@ socket.on('clients', function(clients){
 	}
 	
 });
+socket.on('gps', function(gps){
+	gps = gps.gps.gps;
+	$('#location').fadeIn();
+	$('#map').html('').append('<h3>Accuracy: '+gps.accuracy+'</h3><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q='+gps.latitude+'++'+gps.longitude+'&amp;output=embed"></iframe>');
+});
 
 $('#panic').click(function(){
   socket.emit('panic', {panic:'panic', client:client});
@@ -27,12 +33,18 @@ $('#lock').click(function(){
 $('#horn').click(function(){
 	socket.emit('horn', {horn:'horn', client:client});
 });
+$('#gps').click(function(){
+	socket.emit('gps', {gps:'gps', client:client});
+});
 
+$('#close').click(function(){
+	$(this).parent().fadeOut();
+});
 $(document).on('click', '#delete-item', function(e) {
 	e.preventDefault();
 	socket.emit('delete',{delete:$(this).attr('data-id')});
 	$(this).parent().remove();
-})
+});
 
 var sendCommand = function(command){
 	socket.emit('command', {command:command, client:client});
