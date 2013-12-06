@@ -1,6 +1,8 @@
 $(document).ready(function(){
 
 $('#location').hide();
+$('body #toast').hide();
+
 var socket = io.connect('//node.la:5000');
 socket.on('connect', function(connect) {
   console.log(connect);
@@ -11,7 +13,6 @@ socket.on('users', function(users){
 });
 
 socket.on('clients', function(clients){
-	console.log(clients);
 	for (var i = 0; i < clients.client.length; i++){
 		$('#navDrawer').append('<a href="/'+clients.client[i]._id+'"><li class="bg-white-shade">'+clients.client[i].nickname+'</li></a>');
 		$('#clientList').append('<a href="/'+clients.client[i]._id+'"><li class="bg-white">'+clients.client[i].nickname+' <div class="delete-item" id="delete-item" data-id="'+clients.client[i]._id+'">X</div></li></a>');
@@ -22,6 +23,11 @@ socket.on('gps', function(gps){
 	gps = gps.gps.gps;
 	$('#location').fadeIn();
 	$('#map').html('').append('<h3>Accuracy: '+gps.accuracy+'</h3><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q='+gps.latitude+'++'+gps.longitude+'&amp;output=embed"></iframe>');
+});
+
+socket.on('reply', function(reply){
+	if (reply.message == "connected") return $('#toast').fadeIn(400).text(reply.device+" "+reply.message).delay(500).fadeOut();
+	$('#toast').fadeIn(400).text(reply.message).delay(500).fadeOut();
 });
 
 $('#panic').click(function(){

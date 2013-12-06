@@ -102,6 +102,10 @@ io.on 'connection', (socket) ->
     console.log "GPS request"
     socket.broadcast.to(room).emit 'gps', {gps:gps, client:gps.client}
 
+  socket.on 'reply', (reply) ->
+    console.log "Reply"
+    socket.broadcast.to(room).emit 'reply', {message:reply.message, device:reply.device}
+
   socket.on 'delete', (del) ->
     console.log "deleting #{del.delete}"
     id = mongoose.Types.ObjectId del.delete
