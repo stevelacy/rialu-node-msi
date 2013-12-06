@@ -3,6 +3,11 @@ $(document).ready(function(){
 $('#location').hide();
 $('body #toast').hide();
 
+var check = localStorage.getItem("desktop");
+if (check == 1) {
+	window.location.replace("/desktop");
+}
+
 var socket = io.connect('//node.la:5000');
 socket.on('connect', function(connect) {
   console.log(connect);
@@ -13,6 +18,7 @@ socket.on('users', function(users){
 });
 
 socket.on('clients', function(clients){
+	console.log(clients.client[0]);
 	for (var i = 0; i < clients.client.length; i++){
 		$('#navDrawer').append('<a href="/'+clients.client[i]._id+'"><li class="bg-white-shade">'+clients.client[i].nickname+'</li></a>');
 		$('#clientList').append('<a href="/'+clients.client[i]._id+'"><li class="bg-white">'+clients.client[i].nickname+' <div class="delete-item" id="delete-item" data-id="'+clients.client[i]._id+'">X</div></li></a>');
@@ -27,6 +33,7 @@ socket.on('gps', function(gps){
 
 socket.on('reply', function(reply){
 	if (reply.message == "connected") return $('#toast').fadeIn(400).text(reply.device+" "+reply.message).delay(500).fadeOut();
+	if (reply.message == "Panic Started!") return checkDesktop(reply.device, reply.message);
 	$('#toast').fadeIn(400).text(reply.message).delay(500).fadeOut();
 });
 
@@ -75,24 +82,24 @@ $('#command-form').submit(function(){
 
 
 if (window.navigator.userAgent == "rialu-app") {
-	$(".desktop").hide()
+	$(".desktop").hide();
 }
 
 
 // Navigation drawer
-var slide = 0
+var slide = 0;
 $('#slide-menu').click(function(){
 	if (slide == 0) {
 		$('.content').animate({
-			left: ($('body').width() *.5)
-		})
-		slide = 1
+			left: ($('body').width() *0.5)
+		});
+		slide = 1;
 	}
 	else{
 	$('.content').animate({
 			left: '0'
-		})
-		slide = 0
+		});
+		slide = 0;
 	}
 });
 
@@ -105,13 +112,13 @@ $('#slide-menu').click(function(){
     stop = ui.position.left;
     if(stop > start){
 			$(this).animate({
-				left: ($('body').width() *.5)
-			})
+				left: ($('body').width() *0.5)
+			});
     }
 		else{
 			$(this).animate({
 					left:'0'
-				})
+				});
 			}
 	}
 });
