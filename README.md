@@ -1,14 +1,16 @@
-Rialtóir 
-============
-### Node Server - Cloud and local 
+ Rialú
+======
+###Control system for Linux devices. 
 
 ####Hardware: MSI GT series
 
 Required hardware controller: https://github.com/wearefractal/msi-keyboard
+##Status: 
+Very alpha
 
 ####Description:
 
-PC control system in node designed for MSI GT devices.
+PC control system in node designed for MSI GT devices running Linux.
 Controlled via mobile or web.
 
 
