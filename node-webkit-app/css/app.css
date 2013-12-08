@@ -1,0 +1,12 @@
+.appControls{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.appControls button{
+	display: block;
+	float: left;
+	width: 20px;
+	height: 20px;
+	padding: 2px;
+}

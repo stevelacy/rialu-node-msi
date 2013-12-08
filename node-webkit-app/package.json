@@ -1,0 +1,16 @@
+{
+	"name":"Node WebKit app",
+	"main": "login.html",
+    "node-remote":"http://node.la/*",
+	  "window": {
+        "toolbar": false,
+        "frame":true,
+        "position":"center",
+        "width": 1000,
+        "height": 600,
+        "min_width": 100,
+        "min_height": 200,
+        "icon":"images/app.png"
+
+  }
+}

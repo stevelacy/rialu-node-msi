@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/jqui.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/socket.io.js"></script>
+	<script src="js/jquery2.js"></script> 
+	<script src="js/jqui.js"></script>
+	<script src="js/jqpunch.js"></script>
+	<script src="js/js.js"></script> 
+	<script src="js/client.js"></script> 
+	<title>Client</title>
+
+</head>
+<body class="bg-white-shade">
+
+
+<div class="spacer-25"></div>
+<form id="command-form" class="align-center"><input id="command" type="text" placeholder="Run" class="inline-block"></form><div class="spacer-25"></div><div class="align-center"><button id="lock" class="inline-block margin-5 bg-white">Lock</button><button id="panic" class="inline-block margin-5 bg-white red">Panic</button><button id="horn" class="inline-block margin-5 bg-white">Horn</button><button id="gps" class="inline-block margin-5 bg-white">GPS</button><div id="location" class="location bg-white z-index-5"><div id="close" class="close bg-white-shade">X</div><div id="map"></div></div></div>
+<div class="spacer-25"></div>
+<div class="volume align-center"> 
+<span class="tooltip inline-block align-center">Volume<div id="volume">50</div></span>
+<div id="slider" class="slider"></div>
+</div>
+
+<div class="spacer"></div>
+
+
+
+	
+</body>
+</html>
