@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
-$('#location').hide();
-$('body #toast').hide();
+$('#location, #keyboard-box, body #toast').hide();
 
 var check = localStorage.getItem("desktop");
 if (check == 1) {
@@ -49,10 +48,33 @@ $('#horn').click(function(){
 $('#gps').click(function(){
 	socket.emit('gps', {gps:'gps', client:client});
 });
-
-$('#close').click(function(){
+$('#keyboard').click(function(){
+	$('#keyboard-box').fadeIn();
+});
+$('body #close').click(function(){
 	$(this).parent().fadeOut();
 });
+
+$('#keyboard-set').click(function(keyboard){
+	data = {
+		left: {
+			color: $('#color-left').val(),
+			intensity: $('#intensity-left').val()
+		},
+		center: {
+			color: $('#color-center').val(),
+			intensity: $('#intensity-center').val()
+		},
+		right: {
+			color: $('#color-right').val(),
+			intensity: $('#intensity-right').val()
+		},
+	}
+	socket.emit('keyboard', {data:data, client:client});
+	console.log(data);
+});
+
+
 $(document).on('click', '#delete-item', function(e) {
 	e.preventDefault();
 	socket.emit('delete',{delete:$(this).attr('data-id')});

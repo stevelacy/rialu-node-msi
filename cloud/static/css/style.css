@@ -212,6 +212,11 @@ html {
   box-shadow: 0 0 5px #000;
   color: #cdcdcd;
 }
+.box-33 {
+  width: 32.3%;
+  height: 200px;
+  display: inline-block;
+}
 @media all  and (max-width: 500px) {
   .clientList li {
     position: relative;
