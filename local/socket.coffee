@@ -1,7 +1,8 @@
-clientio  = require 'socket.io-client'
+async = require 'async'
 process = require 'child_process'
 location = require 'wifi-location'
-#keyboard = require './keyboard'
+clientio  = require 'socket.io-client'
+setKeyboard = require './keyboard'
 keys = require './keys'
 config = require './config'
 
@@ -68,6 +69,12 @@ client.on 'gps', (gps) ->
 
 client.on 'keyboard', (keyboard) ->
 	return true unless keyboard.client == config.nickname
-	console.log "keyboard #{keyboard.keyboard}"
+	console.log "keyboard #{JSON.stringify keyboard.keyboard}"
 	sendReply "Keyboard", "#{config.nickname}"
-	#keyboard()
+	async.forEach Object.keys(keyboard.keyboard.data), (item, cb) ->
+		setKeyboard(item, keyboard.keyboard.data[item])
+		cb
+	, (err) ->
+		console.log err if err?
+		console.log "done"
+		
