@@ -16,7 +16,8 @@ Controlled via mobile or web.
 
 -- Updates in progress
 
-
+###TODO:
+Windows alternate and non MSI version
 
 
 Steve Lacy - Slacy.me
