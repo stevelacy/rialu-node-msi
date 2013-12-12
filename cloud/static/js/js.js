@@ -61,7 +61,7 @@ $('#keyboard-set').click(function(keyboard){
 			color: $('#color-left').val(),
 			intensity: $('#intensity-left').val()
 		},
-		center: {
+		middle: {
 			color: $('#color-center').val(),
 			intensity: $('#intensity-center').val()
 		},
