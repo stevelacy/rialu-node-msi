@@ -16,7 +16,7 @@
 		"passport-twitter":"*",
 		"passport.socketio":"1.2.1",
 		"wifi-location":"*",
-		"async":"*",
+		"async":"*"
 
 	}
 }
