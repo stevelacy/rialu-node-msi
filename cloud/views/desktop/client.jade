@@ -1,0 +1,35 @@
+!!!5
+html
+	script
+		var client = '#{pc}';
+	include ./head
+	
+	body.bg-white-shade.trans
+			
+
+		.content.framed.z-index-5.bg-white-shade.trans
+			#toast.toast
+			include ./banner
+			h2.align-center.margin-10 
+				| #{pc}
+			
+			form#command-form.align-center
+				input#command.inline-block(type='text' placeholder='Run') 
+			.spacer-25
+			.align-center
+				button#lock.inline-block.margin-5.bg-white Lock
+				button#panic.inline-block.margin-5.bg-white.red Panic
+				button#horn.inline-block.margin-5.bg-white Horn
+				button#gps.inline-block.margin-5.bg-white GPS
+				#location.location.bg-white.z-index-5
+					#close.close.bg-white-shade X
+					#map
+			.spacer-25
+			.volume.align-center  
+				span.tooltip.inline-block.align-center
+					| Volume
+					#volume
+						| 50
+				div#slider.slider
+			.spacer
+			

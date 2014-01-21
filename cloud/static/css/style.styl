@@ -1,0 +1,359 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:200,300);
+
+
+//color vars
+transparent = rgba(0, 0, 0, 0)
+
+black = rgba(0, 0, 0, 1)
+
+white = rgba(250, 250, 250, 1)
+white-pure = rgba(255, 255, 255, 1)
+white-shade = rgba(235, 235, 235, 1)
+
+light-grey = rgba(205, 205, 205, 1)
+light-grey-shade = rgba(190, 190, 190, 1)
+grey  = rgba(100, 100, 100, 1)
+grey-shade = rgba(85, 85, 85, 1)
+dark-grey = rgba(50, 50, 50, 1)
+dark-grey-shade = rgba(35, 35, 35, 1)
+
+blue = rgba(52, 152, 219, 1)
+blue-shade = rgba(41, 128, 185, 1)
+
+red = rgba(231, 76, 60, 1)
+red-shade = rgba(192, 57, 43, 1)
+
+green = rgba(101, 157, 50, 1)
+green-shade = rgba(81, 137, 30, 1)
+
+yellow = rgba(241, 196, 15, 1)
+yellow-shade = rgba(243, 156, 18, 1)
+
+//font vars
+font = 'Raleway', sans-serif;
+
+
+*
+  margin 0
+  padding 0
+
+*, *:before, *:after
+  -moz-box-sizing border-box
+  -webkit-box-sizing border-box
+  box-sizing border-box
+
+body
+  width 100%
+  font-family font
+  font-size 1.5em
+  font-weight 200
+  color dark-grey-shade
+
+a
+  color dark-grey
+  text-decoration none
+
+h1, h2, h3, h4, h5, h6
+  font-weight normal
+
+input, textarea
+  border 1px solid white
+  outline none
+  padding 10px
+  font-family font
+  &:focus
+    border 1px solid white-shade  
+button, input[type='submit'] 
+  padding 10px
+  background white-shade
+  border none
+  border-bottom 2px solid light-grey
+  box-shadow 0 0 2px light-grey
+input[type='text']
+	width 90%
+select
+  padding 5px
+  background none
+  border 1px solid white-shade
+button:hover, input[type='submit']:hover
+  background light-grey
+
+// elements
+
+.banner
+  position relative
+  width 100%
+  height 75px
+  padding 10px
+  z-index 5
+
+.banner .right-button
+  position absolute
+  right 10px
+  height 55px
+
+.clientList li
+  position relative
+  list-style-type none
+  display inline-block
+  width 50%
+  min-height 60px
+  padding 20px
+  box-shadow 0 0 3px light-grey
+  word-break break-all
+
+
+.delete-item
+  position absolute
+  right 1%
+  top 10px
+  width 30px
+  height 30px
+// classes
+
+.framed
+  padding 1%
+.align-right
+  text-align right
+.align-left
+  text-align left
+.align-center
+  text-align center
+
+.inline-block
+	display inline-block
+
+.spacer
+  height 100px
+.spacer-25
+	height 50px
+.margin-10
+  margin 10px
+.margin-5
+	margin 5px
+
+.box-shadow
+  box-shadow 0 0 3px grey
+
+.trans
+  //-webkit-transition all 0.4s ease
+  -moz-transition all 0.4s ease
+  -o-transition all 0.4s ease
+  //transition all 0.4s ease
+
+
+// Jquery UI theme fixes:
+.volume .slider
+	position relative
+	height 12px
+	outline-color transparent
+	.ui-slider-handle
+		position absolute
+		top -10px
+		height 30px
+		width 30px
+		border-radius 15px
+		outline none
+
+.volume .tooltip
+	width 30%
+	height 75px
+
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus, .ui-state-active, .ui-widget-content .ui-state-active
+	outline none
+	border none
+	box-shadow 0 0 2px light-grey
+	background white-pure
+	
+
+
+
+
+
+
+
+
+// custom classes
+body,html
+  z-index 0
+  height 100%
+  position relative
+.content
+  height 100%
+  position relative
+.z-index-5
+  z-index 5
+.navOpen
+  margin-left 50%
+  width 100%
+.navClosed
+  margin-left 0
+
+.navDrawer
+  position absolute
+  left 0
+  top 0
+  width 49%
+  height 100%
+  li
+    list-style-type none
+    width 100%
+    min-height 50px
+    max-height 100px
+    box-shadow 0 0 2px grey
+    padding 10px
+
+.location
+  position absolute
+  top 20px
+  left 5%
+  height 80%
+  width 90%
+
+.close
+  position absolute
+  right 1%
+  top 10px
+  width 50px
+  height 50px  
+  font-size: 2em
+
+.toast
+  position absolute
+  bottom 10%
+  left 0
+  right 0
+  margin 0 auto 0 auto
+  width 200px
+  height 50px
+  text-align center
+  padding 10px
+  background rgba(0, 0, 0, .8)
+  box-shadow 0 0 5px black
+  color light-grey
+  z-index 10
+
+
+.box-33
+  width 32.3%
+  height 200px
+  display inline-block
+
+
+@media all  and (max-width: 500px)
+  .clientList li
+    position relative
+    list-style-type none
+    display inline-block
+    width 100%
+    min-height 60px
+    padding 20px
+    box-shadow 0 0 3px light-grey
+    word-break break-all
+  .box-33
+    width 100%
+    height 100px
+    display inline-block
+    font-size .6em
+
+
+
+
+
+  // color classes
+.black
+  color black
+
+.white
+  color white
+.white-pure
+  color white-pure
+.white-shade
+  color white-shade
+
+.light-grey
+  color light-grey
+.light-grey-shade
+  color light-grey-shade
+.grey
+  color grey
+.grey-shade
+  color grey-shade
+.dark-grey
+  color dark-grey
+.dark-grey-shade
+  color dark-grey-shade
+
+.blue
+  color blue
+.blue-shade
+  color blue-shade
+
+.red
+  color red
+.red-shade
+  color red-shade
+
+.green
+  color green
+.green-shade
+  color green-shade
+
+.yellow
+  color yellow
+.yellow-shade
+  color yellow-shade
+
+// background classes
+.bg-black
+  background black
+
+.bg-white
+  background white
+.bg-white-pure
+  background white-pure
+.bg-white-shade
+  background white-shade
+
+.bg-light-grey
+  background light-grey
+.bg-light-grey-shade
+  background light-grey-shade
+.bg-grey
+  background grey
+.bg-grey-shade
+  background grey-shade
+.bg-dark-grey
+  background dark-grey
+.bg-dark-grey-shade
+  background dark-grey-shade
+
+.bg-blue
+  background blue
+.bg-blue-shade
+  background blue-shade
+
+.bg-red
+  background red
+.bg-red-shade
+  background red-shade
+
+.bg-green
+  background green
+.bg-green-shade
+  background green-shade
+
+.bg-yellow
+  background yellow
+.bg-yellow-shade
+  background yellow-shade
+
+
+
+
+// Webkit hacks
+*
+	-webkit-tap-highlight-color rgba(0, 0, 0, 0)
+	//-webkit-user-modify read-write-plaintext-only
+	outline none

@@ -1,0 +1,104 @@
+!!!5
+html
+	script
+		var client = '#{pc}';
+	include ./head
+	
+	body.bg-white-shade.trans
+		include ./navdrawer
+			
+
+		.content.framed.z-index-5.bg-white-shade.trans
+			#toast.toast
+			include ./banner
+			h2.align-center.margin-10 
+				| #{pc}
+			
+			form#command-form.align-center
+				input#command.inline-block(type='text' placeholder='Run') 
+			.spacer-25
+			.align-center
+				button#lock.inline-block.margin-5.bg-white Lock
+				button#panic.inline-block.margin-5.bg-white.red Panic
+				button#horn.inline-block.margin-5.bg-white Horn
+				button#gps.inline-block.margin-5.bg-white GPS
+				button#keyboard.inline-block.margin-5.bg-white Keyboard
+				#location.location.bg-white.z-index-5
+					#close.close.bg-white-shade X
+					#map
+				#keyboard-box.location.bg-white.z-index-5.align-center
+					#close.close.bg-white-shade X
+					.box-33.bg-white-pure
+						h3 Left
+						| Color: 
+						select#color-left(name="color") 
+							option(value="off") off
+							option(value="red") red 
+							option(value="orange") orange
+							option(value="yellow") yellow
+							option(value="green") green
+							option(value="sky") sky
+							option(value="blue") blue
+							option(value="purple") purple
+							option(value="white") white
+						br
+						br
+						| Intensity	
+						select#intensity-left
+							option(value="light") light
+							option(value="low") low
+							option(value="med") med
+							option(value="high") high
+					.box-33.bg-white-pure
+						h3 Center
+						| Color: 
+						select#color-center(name="color") 
+							option(value="off") off
+							option(value="red") red 
+							option(value="orange") orange
+							option(value="yellow") yellow
+							option(value="green") green
+							option(value="sky") sky
+							option(value="blue") blue
+							option(value="purple") purple
+							option(value="white") white
+						br
+						br
+						| Intensity	
+						select#intensity-center
+							option(value="light") light
+							option(value="low") low
+							option(value="med") med
+							option(value="high") high
+					.box-33.bg-white-pure
+						h3 Right
+						| Color: 
+						select#color-right(name="color") 
+							option(value="off") off
+							option(value="red") red 
+							option(value="orange") orange
+							option(value="yellow") yellow
+							option(value="green") green
+							option(value="sky") sky
+							option(value="blue") blue
+							option(value="purple") purple
+							option(value="white") white
+						br
+						br
+						| Intensity	
+						select#intensity-right
+							option(value="light") light
+							option(value="low") low
+							option(value="med") med
+							option(value="high") high
+
+					button#keyboard-set.bg-green.white Save
+			.spacer-25
+			.volume.align-center  
+				span.tooltip.inline-block.align-center
+					| Volume
+					#volume
+						| 50
+				div#slider.slider
+			.spacer
+			
