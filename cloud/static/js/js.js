@@ -2,10 +2,10 @@ $(document).ready(function(){
 
 $('#location, #keyboard-box, body #toast').hide();
 
-var check = localStorage.getItem("desktop");
+/*var check = localStorage.getItem("desktop");
 if (check == 1) {
 	window.location.replace("/desktop");
-}
+}*/
 
 var socket = io.connect('//node.la:5000');
 socket.on('connect', function(connect) {

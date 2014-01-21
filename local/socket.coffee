@@ -7,7 +7,7 @@ keys = require './keys'
 config = require './config'
 
 exec = process.exec
-
+console.log __dirname
 client = clientio.connect config.server, 'force new connection': true, 'reconnect': true, 'reconnection delay': 1000, 'max reconnection attempts': 10
 
 panicNum = 0
@@ -25,6 +25,7 @@ client.on 'connect', (socket) ->
 	
 client.on 'auth', (auth) ->
 	console.log "Twitter authorized #{auth.auth}"
+	exec "notify-send 'Rialu' 'Has connected'"
 
 client.on 'volume', (volume) ->
 	return true unless volume.client == config.nickname

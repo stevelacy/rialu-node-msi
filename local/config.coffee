@@ -1,5 +1,5 @@
 config = 
-	nickname: "PC-1"
+	nickname: "X"
 	server:'http://node.la:5000'
 
 

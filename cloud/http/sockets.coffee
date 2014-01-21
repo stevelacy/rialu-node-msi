@@ -74,29 +74,29 @@ io.on 'connection', (socket) ->
 
 
   socket.on 'panic', (panic) ->
-  	console.log "panic"
-  	socket.broadcast.to(room).emit 'panic', {panic:panic, client:panic.client}
-  	
+    console.log "panic"
+    socket.broadcast.to(room).emit 'panic', {panic:panic, client:panic.client}
+    
   socket.on 'volume', (volume) ->
-  	console.log "volume #{volume.volume}"
-  	socket.broadcast.to(room).emit 'volume', {volume:volume.volume, client:volume.client}
+    console.log "volume #{volume.volume}"
+    socket.broadcast.to(room).emit 'volume', {volume:volume.volume, client:volume.client}
 
   socket.on 'lock', (lock) ->
-  	console.log "lock #{lock.lock}"
-  	socket.broadcast.to(room).emit 'lock', {lock:lock, client:lock.client}
+    console.log "lock #{lock.lock}"
+    socket.broadcast.to(room).emit 'lock', {lock:lock, client:lock.client}
 
   socket.on 'horn', (horn) ->
-  	console.log "horn #{horn.horn}"
-  	socket.broadcast.to(room).emit 'horn', {horn:horn, client:horn.client}
+    console.log "horn #{horn.horn}"
+    socket.broadcast.to(room).emit 'horn', {horn:horn, client:horn.client}
 
   socket.on 'command', (command) ->
-  	console.log "command #{command.command}"
-  	socket.broadcast.to(room).emit 'command', {command:command.command, client:command.client}
+    console.log "command #{command.command}"
+    socket.broadcast.to(room).emit 'command', {command:command.command, client:command.client}
 
-  	
+    
   socket.on 'keyboard', (keyboard) ->
-  	console.log "#{keyboard.keyboard}"
-  	socket.broadcast.to(room).emit 'keyboard', {keyboard:keyboard, client:keyboard.client}
+    console.log "#{keyboard.keyboard}"
+    socket.broadcast.to(room).emit 'keyboard', {keyboard:keyboard, client:keyboard.client}
 
   socket.on 'gps', (gps) ->
     console.log "GPS request"
