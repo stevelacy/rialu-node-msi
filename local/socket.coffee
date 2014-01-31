@@ -3,6 +3,7 @@ process = require 'child_process'
 location = require 'wifi-location'
 clientio  = require 'socket.io-client'
 setKeyboard = require './keyboard'
+keyboardPanic = require './keyboardPanic'
 keys = require './keys'
 config = require './config'
 
@@ -13,14 +14,18 @@ client = clientio.connect config.server, 'force new connection': true, 'reconnec
 panicNum = 0
 twitter = keys.twitter
 
+check = 0
 sendReply = (message, device) ->
   client.emit 'reply', {message:message, device:device}
 
 client.on 'connect', (socket) ->
-	console.log "connected"
-	client.emit 'auth', {auth:twitter, nickname:config.nickname}
-	sendReply "connected", "#{config.nickname}"
+	if check == 0
+		console.log "connected"
+		client.emit 'auth', {auth:twitter, nickname:config.nickname}
+		sendReply "connected", "#{config.nickname}"
+		check = 1
 	client.on 'disconnect', (dis) ->
+		check = 0
 		console.log "disconnected from server!"
 	
 client.on 'auth', (auth) ->
@@ -42,6 +47,7 @@ client.on 'panic', (panic) ->
 	if panicNum == 0
 		panicNum = 1
 		exec "gnome-screensaver-command --lock && amixer set Master 100 && cvlc #{__dirname}/assets/alarm.mp3"
+		keyboardPanic()
 		sendReply "Panic Started!","#{config.nickname}"
 	else
 		panicNum = 0
@@ -77,4 +83,7 @@ client.on 'keyboard', (keyboard) ->
 	, (err) ->
 		console.log err if err?
 		console.log "done"
+client.on 'webcam', (webcam) ->
+	return true unless webcam.client == config.nickname
+	console.log "webcam #{JSON.stringify webcam.photo}"
 		
